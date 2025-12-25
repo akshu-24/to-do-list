@@ -1,0 +1,304 @@
+:root {
+    --bg: #7a95bf;
+    --card: #0b1220;
+    --muted: #a0b29a;
+    --accent: #60a5fa;
+    --success: #34d399;
+    --danger: #fb7185
+}
+
+:root {
+    --bg: #071226;
+    --panel: #07182a;
+    --card: #0b1220;
+    --muted: #a0b29a;
+    --accent: #60a5fa;
+    --accent-2: #3b82f6;
+    --success: #34d399;
+    --danger: #fb7185;
+    --glass: rgba(255, 255, 255, 0.03);
+    --radius: 10px;
+}
+
+* {
+    box-sizing: border-box
+}
+
+html,
+body {
+    height: 100%
+}
+
+body {
+    font-family: Inter, Segoe UI, Roboto, system-ui, -apple-system;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(180deg, #041022 0%, #071226 100%);
+    color: #e6eef6;
+    -webkit-font-smoothing: antialiased
+}
+
+.app {
+    max-width: 1100px;
+    margin: 28px auto;
+    padding: 20px
+}
+
+.app-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    gap: 12px
+}
+
+.app-header h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    letter-spacing: 0.2px
+}
+
+.quick-add {
+    display: flex;
+    gap: 8px;
+    align-items: center
+}
+
+.quick-add input {
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    background: transparent;
+    color: inherit;
+    min-width: 260px;
+    outline: none;
+    transition: box-shadow .18s, transform .12s
+}
+
+.quick-add input:focus {
+    box-shadow: 0 6px 18px rgba(3, 30, 60, 0.5);
+    transform: translateY(-1px)
+}
+
+.quick-add button {
+    padding: 10px 14px;
+    border-radius: 12px;
+    background: linear-gradient(180deg, var(--accent), var(--accent-2));
+    color: #042033;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(59, 130, 246, 0.12)
+}
+
+.workspace {
+    display: grid;
+    grid-template-columns: 260px 1fr 320px;
+    gap: 14px
+}
+
+.panel {
+    background: var(--panel);
+    padding: 14px;
+    border-radius: var(--radius);
+    backdrop-filter: blur(6px);
+    border: 1px solid var(--glass)
+}
+
+.tasks-area {
+    min-height: 480px
+}
+
+.task-list {
+    list-style: none;
+    margin: 0;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+}
+
+.task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border-radius: 12px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.015), transparent);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    transition: transform .12s, box-shadow .12s, opacity .12s
+}
+
+.task:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(2, 15, 30, 0.5)
+}
+
+.task .left {
+    display: flex;
+    align-items: center;
+    gap: 12px
+}
+
+.task .title {
+    font-weight: 700
+}
+
+.task .title.done {
+    text-decoration: line-through;
+    opacity: .7
+}
+
+.task .sub {
+    font-size: 12px;
+    color: var(--muted)
+}
+
+.task .sub .tags {
+    color: var(--accent);
+    font-weight: 600
+}
+
+.task .priority {
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    min-width: 68px;
+    text-align: center
+}
+
+.priority[data-p="high"] {
+    background: #3b0f15;
+    color: #ffd6d6
+}
+
+.priority[data-p="medium"] {
+    background: #3b2610;
+    color: #fff3cf
+}
+
+.priority[data-p="low"] {
+    background: #0f2b1f;
+    color: #dff7ea
+}
+
+.task.dragging {
+    opacity: 0.6;
+    transform: scale(0.98)
+}
+
+.form-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px
+}
+
+.form-actions button {
+    padding: 9px 12px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer
+}
+
+.controls label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 13px;
+    color: var(--muted)
+}
+
+.controls input,
+.panel input,
+.panel select,
+.panel textarea {
+    width: 100%;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    background: transparent;
+    color: inherit;
+    outline: none
+}
+
+.controls input:focus,
+.panel input:focus,
+.panel select:focus,
+.panel textarea:focus {
+    box-shadow: 0 8px 20px rgba(3, 30, 60, 0.45)
+}
+
+.help p {
+    font-size: 12px;
+    color: var(--muted);
+    margin: 8px 0 0
+}
+
+.button-ghost {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    color: var(--muted);
+    padding: 8px;
+    border-radius: 8px
+}
+
+.task .right {
+    display: flex;
+    align-items: center;
+    gap: 8px
+}
+
+.task .edit,
+.task .delete {
+    background: transparent;
+    border: none;
+    color: var(--muted);
+    padding: 6px;
+    border-radius: 6px;
+    cursor: pointer
+}
+
+.task .edit:hover,
+.task .delete:hover {
+    color: #fff
+}
+
+small {
+    color: var(--muted)
+}
+
+.empty {
+    padding: 40px;
+    text-align: center;
+    color: var(--muted)
+}
+
+/* focus styles for keyboard navigation */
+:focus {
+    outline: 3px solid rgba(96, 165, 250, 0.18);
+    outline-offset: 3px
+}
+
+/* responsive tweaks */
+@media(max-width:1000px) {
+    .workspace {
+        grid-template-columns: 1fr;
+        grid-auto-rows: min-content
+    }
+
+    .panel.details {
+        order: 3
+    }
+
+    .app {
+        padding: 14px
+    }
+
+    .quick-add input {
+        min-width: 140px
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important
+    }
+}
