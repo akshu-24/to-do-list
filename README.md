@@ -1,4 +1,3 @@
-
 # 📝 To-Do List App
 
 A simple and user-friendly **To-Do List application** that helps users organize, manage, and track their daily tasks efficiently.
